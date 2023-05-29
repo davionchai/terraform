@@ -3,7 +3,7 @@ resource "aws_secretsmanager_secret" "secrets_de_airflow_deployment" {
   name        = "de-airflow-deployment-secrets"
   kms_key_id  = aws_kms_alias.general_de_kms_alias.arn
   tags = {
-    Owner       = "${var.owner_email}"
+    Owner       = var.owner_email
     Environment = "playground"
     ManagedBy   = "Terraform"
   }
