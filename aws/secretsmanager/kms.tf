@@ -2,7 +2,7 @@ resource "aws_kms_key" "general_de_kms_key" {
   description = "General kms key for AWS Secrets Manager"
   tags = {
     Owner       = "${var.owner_email}"
-    Environment = "playground"
+    Environment = "development"
     ManagedBy   = "Terraform"
   }
 }

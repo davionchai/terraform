@@ -3,8 +3,8 @@ resource "aws_secretsmanager_secret" "secrets_de_airflow_deployment" {
   name        = "de-airflow-deployment-secrets"
   kms_key_id  = aws_kms_alias.general_de_kms_alias.arn
   tags = {
-    Owner       = var.owner_email
-    Environment = "playground"
+    Owner       = "${var.owner_email}"
+    Environment = "development"
     ManagedBy   = "Terraform"
   }
 }
@@ -22,6 +22,28 @@ resource "aws_secretsmanager_secret_version" "secret_de_airflow_deployment_versi
     "smtp_password": "",
     "webserver_secret_key": "fernet_key_format",
     "webserver_admin_password": "",
+  }
+  EOF
+}
+
+resource "aws_secretsmanager_secret" "secrets_de_vpn_ip" {
+  description = "Secrets for data engineering vpn ip addresses"
+  name        = "de-vpn-ip"
+  kms_key_id  = aws_kms_alias.general_de_kms_alias.arn
+  tags = {
+    Owner       = "${var.owner_email}"
+    Environment = "development"
+    ManagedBy   = "Terraform"
+  }
+}
+
+resource "aws_secretsmanager_secret_version" "secrets_de_vpn_ip_version" {
+  secret_id     = aws_secretsmanager_secret.secrets_de_vpn_ip.id
+  secret_string = <<EOF
+  {
+    "ip_1": "pepe_haha",
+    "ip_2": "pepe_hehe",
+    "ip_3": "pepe_hihi",
   }
   EOF
 }
