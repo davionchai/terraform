@@ -27,3 +27,8 @@ https://github.com/99designs/aws-vault\
     role_arn=arn:aws:iam::<target_aws_account_id>:role/<target_role>
     ```
 
+## Resource creation order
+1. 
+
+## Resource deletion order
+1. 
