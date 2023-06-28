@@ -1,5 +1,5 @@
 variable "owner_email" {
-  type= string 
+  type = string
 }
 
 variable "region" {
